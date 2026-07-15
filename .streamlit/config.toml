@@ -1,0 +1,5 @@
+[server]
+port = 8505
+enableCORS = false
+enableXsrfProtection = false
+enableWebsocketCompression = false
