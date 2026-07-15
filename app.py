@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 import torch
 import torch.nn.functional as F
 from torchvision import models, transforms
@@ -76,7 +77,7 @@ def load_quantum_engine(selected_department):
     model = StratumResp(create_qnn_head(NUM_CLASSES)).to(device)
     
     if os.path.exists(weights_path):
-        model.load_state_dict(torch.load(weights_path, map_location=device, weights_only=True))
+        model.load_state_dict(torch.load(weights_path, map_location='cpu', weights_only=True))
     else:
         st.error(f"🚨 CRITICAL ERROR: Could not find {weights_path}!")
         

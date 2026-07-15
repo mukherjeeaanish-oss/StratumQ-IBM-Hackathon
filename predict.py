@@ -58,7 +58,7 @@ class StratumResp(nn.Module):
 print("📥 Loading Stratum Thesis Weights (97.42% Acc)...")
 model = StratumResp(create_qnn_head()).to(device)
 
-model.load_state_dict(torch.load(WEIGHTS_PATH, map_location=device, weights_only=True))
+model.load_state_dict(torch.load(WEIGHTS_PATH, map_location='cpu', weights_only=True))
 model.eval() 
 
 # --- 3. PREPARE THE CT SCAN ---
